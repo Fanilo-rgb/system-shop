@@ -1,0 +1,23 @@
+{% include 'main.html' %} {% block content %}
+
+<h1>Ajout produit</h1>
+
+<form action="/ajout_produit/" method="POST">
+  {% csrf_token %}
+
+  <p>Nom produit :</p>
+  <input type="text" name="name" />
+  <p>Prix :</p>
+  <input type="text" name="price" /><br />
+  <input type="submit" />
+</form>
+
+<h2>Listes des produits existant</h2>
+
+<ul>
+  {% for product in products %}
+  <li>{{ product.name }} : {{ product.price }}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "main.html" %} {% block content %}
+
+<h1>Liste des distributeurs</h1>
+
+<ul>
+  {% for distributor in distributors %}
+
+  <li>
+    <p>Nom et prenom: {{distributor.name}}</p>
+    <p>Numéro carte: {{distributor.card_id}}</p>
+  </li>
+
+  {% endfor %}
+</ul>
+
+{% endblock %}
+
+<!-- <p>Genre: {{distributor.sex}}</p>
+        <p>nationalité: {{distributor.nationality}}</p>
+        <p>date de naissance: {{distributor.date_of_birth}}</p>
+        <p>CIN: {{distributor.cin}}</p>
+        <p>phone_number: +261 {{distributor.phone_number}}</p>
+        <p>adresse: {{distributor.adress}}</p>
+        <p>Code postal: {{distributor.postal_code}}</p> -->

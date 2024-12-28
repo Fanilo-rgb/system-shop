@@ -1,0 +1,26 @@
+{% extends "main.html" %} {% block content %}
+
+<h1>Login Now</h1>
+
+<style>
+  h3 {
+    color: red;
+  }
+</style>
+
+{% for message in messages %}
+<h3>{{ message }}</h3>
+{% endfor %}
+
+<form method="POST" action="/login/">
+  {% csrf_token %}
+  <p>Username :</p>
+  <input type="text" name="username" value="" />
+  <p>Password :</p>
+  <input type="password" name="password" value="" /><br />
+  <input type="submit" />
+</form>
+
+<h2>Pas de compte ?? <a href="/register/">Cliquer ici</a> pour s'inscrire</h2>
+
+{% endblock %}

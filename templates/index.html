@@ -1,0 +1,24 @@
+{% extends "main.html" %} {% block content %}
+
+<h1>Home page</h1>
+
+{% if user.is_authenticated %}
+
+<a href="logout/">Logout</a>
+<hr />
+
+<h2>Hello, {{ user.username }}</h2>
+
+<a href="distributeur/">Liste des distributeurs</a><br />
+<a href="invoices/">Liste facture</a><br />
+<a href="ajout_produit/">Ajout produit</a><br />
+<a href="achat_produit/">Achat produit</a>
+
+{% else %}
+
+<h2>Qu'est ce que tu fais là ?</h2>
+<p>Azzy inscrit toi</p>
+
+<a href="login/">Login or SignUp</a>
+
+{% endif %} {% endblock %}

@@ -1,0 +1,31 @@
+{% extends "main.html" %} {% block content %}
+
+<h1>Achat de produit</h1>
+
+<h2>Liste des factures</h2>
+
+{% for invoice in invoices %}
+<div style="border: 1px solid #ddd; margin: 10px; padding: 10px">
+  <h2>Facture #{{ invoice.id }}</h2>
+  <p><strong>Distributeur :</strong> {{ invoice.person.name }}</p>
+  <p><strong>Numéro de Carte :</strong> {{ invoice.person.card_id }}</p>
+  <p><strong>Téléphone :</strong> {{ invoice.person.phone_number }}</p>
+  <p><strong>Adresse :</strong> {{ invoice.person.adress }}</p>
+  <p>
+    <strong>Date de Création de la Facture :</strong> {{ invoice.created_at }}
+  </p>
+
+  <h3>Produits :</h3>
+  <ul>
+    {% for item in invoice.items.all %}
+    <li>
+      {{ item.quantity }} x {{ item.product.name }} - {{ item.product.price }} $
+      (<strong>Total en dollars:</strong> {{ item.total_price }} $) (<strong
+        >Total en ariary:</strong
+      >
+      {{ item.total_ar }} $)
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endfor %} {% endblock %}
